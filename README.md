@@ -37,3 +37,15 @@ Self-Attention → Add & Norm → Feedforward → Add & Norm
 ❌ Dropout before BatchNorm: Dropout may ruin the statistics needed by BatchNorm.
 
 ❌ BatchNorm after output layer: Output layer should produce raw logits or class probs without normalization.
+
+# ✅ Summary Table: What Goes After What
+
+| Layer |	Usually Followed By |
+| --- | --- |
+| Linear |	BatchNorm or Activation |
+| BatchNorm |	Activation |
+| Activation	| Dropout or Linear |
+| Dropout	| Linear |
+| Conv2D	| BatchNorm → Activation → Pool |
+| Recurrent	| Dropout or another RNN block |
+| Output	| Sigmoid (binary) or Softmax (multiclass) |
