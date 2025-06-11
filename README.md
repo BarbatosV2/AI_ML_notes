@@ -1,4 +1,4 @@
-# AI/ML notes by Zaw
+# AI/ML note by Zaw
 
 # 🔁 Common Layer Patterns
 
