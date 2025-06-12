@@ -514,3 +514,49 @@ with mlflow.start_run():
     mlflow.log_metric("accuracy", 0.9)
 ```
 
+### 🧠 ML & Neural Network Cheat Sheet by Use Case
+
+| Model / Algorithm                | Best Use Case(s)                                                         | Notes                                                    |
+| -------------------------------- | ------------------------------------------------------------------------ | -------------------------------------------------------- |
+| **Linear Regression**            | Predicting continuous values (e.g., house prices, sales forecast)        | Simple and fast; assumes linearity                       |
+| **Logistic Regression**          | Binary classification (e.g., spam detection, churn prediction)           | Outputs probabilities                                    |
+| **Decision Tree**                | Tabular classification & regression tasks (e.g., customer segmentation)  | Interpretable; prone to overfitting                      |
+| **Random Forest**                | General-purpose classification/regression, especially on structured data | Ensemble of decision trees; handles non-linearities well |
+| **XGBoost / LightGBM**           | Kaggle-style structured data (e.g., fraud detection, risk scoring)       | Very powerful for tabular data                           |
+| **KNN (K-Nearest Neighbors)**    | Simple pattern recognition, recommendation, anomaly detection            | Sensitive to feature scaling and high dimensions         |
+| **Naive Bayes**                  | Text classification (e.g., spam, sentiment analysis)                     | Assumes feature independence; very fast                  |
+| **SVM (Support Vector Machine)** | Small-to-medium datasets, classification, outlier detection              | Powerful on small, high-dimensional datasets             |
+
+### 🤖 Deep Learning Models
+
+| Neural Network Type                              | Best Use Case(s)                                                        | Notes                                                     |
+| ------------------------------------------------ | ----------------------------------------------------------------------- | --------------------------------------------------------- |
+| **CNN (Convolutional NN)**                       | Image classification, object detection, medical imaging, video analysis | Uses spatial hierarchies; good for 2D and 3D data         |
+| **RNN (Recurrent NN)**                           | Sequential data like time series, stock prediction, or text generation  | Struggles with long sequences                             |
+| **LSTM / GRU**                                   | Long sequence data (e.g., speech, language modeling, translation)       | Solves RNN vanishing gradient problem                     |
+| **Transformer**                                  | NLP tasks (e.g., summarization, QA, translation), image captioning      | Replaces RNNs for long sequence modeling; e.g., GPT, BERT |
+| **GAN (Generative Adversarial Network)**         | Image generation, style transfer, data augmentation                     | Trains generator vs. discriminator                        |
+| **Autoencoder**                                  | Anomaly detection, denoising, data compression                          | Learns to reconstruct input data                          |
+| **MLP (Multi-layer Perceptron)**                 | Simple tabular regression/classification with enough data               | Fully connected; basic neural network                     |
+| **GNN (Graph Neural Network)**                   | Social networks, recommendation, protein structure prediction           | Works on graph-structured data                            |
+| **Capsule Networks**                             | Object recognition with better pose awareness (experimental)            | Tries to improve on CNN limitations                       |
+| **Reinforcement Learning (DQN, PPO, A3C, etc.)** | Robotics, game playing, decision systems                                | Learns via trial and error (reward signal)                |
+
+### 🧩 Use Case to Model Mapping
+
+| Use Case                     | Recommended Model(s)                                |
+| ---------------------------- | --------------------------------------------------- |
+| Image classification         | CNN, ResNet, EfficientNet                           |
+| Object detection             | YOLO, SSD, Faster R-CNN                             |
+| Text classification          | Logistic Regression, LSTM, Transformer (e.g., BERT) |
+| Sentiment analysis           | LSTM, Transformer, Naive Bayes                      |
+| Speech recognition           | RNN, LSTM, Transformer (e.g., Whisper, wav2vec)     |
+| Time series forecasting      | LSTM, GRU, Transformer, ARIMA                       |
+| Tabular data regression      | Random Forest, XGBoost, LightGBM, MLP               |
+| Fraud detection              | Autoencoder, Isolation Forest, XGBoost              |
+| Recommendation systems       | Matrix Factorization, Autoencoder, GNN              |
+| Chatbot / Question Answering | Transformer (e.g., GPT, BERT), RAG                  |
+| Image generation             | GAN, VAE                                            |
+| Video analysis               | 3D CNN, Transformer (TimeSformer)                   |
+| Game playing / Robotics      | Reinforcement Learning (DQN, PPO, A3C)              |
+
