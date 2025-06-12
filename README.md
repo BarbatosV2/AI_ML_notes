@@ -560,3 +560,231 @@ with mlflow.start_run():
 | Video analysis               | 3D CNN, Transformer (TimeSformer)                   |
 | Game playing / Robotics      | Reinforcement Learning (DQN, PPO, A3C)              |
 
+## 🧠 ML & Neural Network Examples
+
+### Linear Regression (scikit-learn)
+
+```python
+from sklearn.linear_model import LinearRegression
+from sklearn.datasets import make_regression
+
+X, y = make_regression(n_samples=100, n_features=1, noise=10)
+model = LinearRegression()
+model.fit(X, y)
+print(model.coef_, model.intercept_)
+```
+
+### Logistic Regression
+
+```python
+from sklearn.linear_model import LogisticRegression
+from sklearn.datasets import make_classification
+
+X, y = make_classification(n_samples=100, n_features=4)
+model = LogisticRegression()
+model.fit(X, y)
+print(model.predict(X[:5]))
+```
+
+### Decision Tree
+
+```python
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.datasets import load_iris
+
+X, y = load_iris(return_X_y=True)
+model = DecisionTreeClassifier()
+model.fit(X, y)
+print(model.predict(X[:5]))
+```
+
+### Random Forest
+
+```python
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.datasets import load_iris
+
+X, y = load_iris(return_X_y=True)
+model = RandomForestClassifier()
+model.fit(X, y)
+print(model.predict(X[:5]))
+```
+
+### XGBoost
+
+```python
+import xgboost as xgb
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+
+X, y = load_iris(return_X_y=True)
+X_train, X_test, y_train, y_test = train_test_split(X, y)
+model = xgb.XGBClassifier()
+model.fit(X_train, y_train)
+print(model.predict(X_test[:5]))
+```
+
+### KNN
+
+```python
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.datasets import load_iris
+
+X, y = load_iris(return_X_y=True)
+model = KNeighborsClassifier(n_neighbors=3)
+model.fit(X, y)
+print(model.predict(X[:5]))
+```
+
+### Naive Bayes
+
+```python
+from sklearn.naive_bayes import GaussianNB
+from sklearn.datasets import load_iris
+
+X, y = load_iris(return_X_y=True)
+model = GaussianNB()
+model.fit(X, y)
+print(model.predict(X[:5]))
+```
+
+### SVM
+
+```python
+from sklearn.svm import SVC
+from sklearn.datasets import load_iris
+
+X, y = load_iris(return_X_y=True)
+model = SVC()
+model.fit(X, y)
+print(model.predict(X[:5]))
+```
+
+---
+
+## 🤖 Neural Network Examples
+
+### MLP (PyTorch)
+
+```python
+import torch
+import torch.nn as nn
+
+model = nn.Sequential(
+    nn.Linear(4, 16),
+    nn.ReLU(),
+    nn.Linear(16, 3)
+)
+x = torch.rand((1, 4))
+print(model(x))
+```
+
+### CNN (PyTorch)
+
+```python
+import torch
+import torch.nn as nn
+
+class CNN(nn.Module):
+    def __init__(self):
+        super().__init__()
+        self.conv = nn.Conv2d(1, 16, kernel_size=3)
+        self.pool = nn.MaxPool2d(2, 2)
+        self.fc = nn.Linear(16 * 13 * 13, 10)
+
+    def forward(self, x):
+        x = self.pool(torch.relu(self.conv(x)))
+        x = x.view(-1, 16 * 13 * 13)
+        return self.fc(x)
+
+model = CNN()
+input = torch.rand((1, 1, 28, 28))
+print(model(input))
+```
+
+### RNN (PyTorch)
+
+```python
+import torch
+import torch.nn as nn
+
+rnn = nn.RNN(input_size=10, hidden_size=20, batch_first=True)
+x = torch.randn(5, 3, 10)
+h0 = torch.zeros(1, 5, 20)
+output, hn = rnn(x, h0)
+print(output.shape)
+```
+
+### LSTM (PyTorch)
+
+```python
+import torch
+import torch.nn as nn
+
+lstm = nn.LSTM(input_size=10, hidden_size=20, batch_first=True)
+x = torch.randn(5, 3, 10)
+output, (hn, cn) = lstm(x)
+print(output.shape)
+```
+
+### Transformer (HuggingFace)
+
+```python
+from transformers import pipeline
+
+classifier = pipeline("sentiment-analysis")
+print(classifier("I love this AI assistant!"))
+```
+
+### GAN (PyTorch skeleton)
+
+```python
+import torch
+import torch.nn as nn
+
+class Generator(nn.Module):
+    def __init__(self):
+        super().__init__()
+        self.main = nn.Sequential(
+            nn.Linear(100, 256),
+            nn.ReLU(),
+            nn.Linear(256, 784),
+            nn.Tanh()
+        )
+
+    def forward(self, x):
+        return self.main(x)
+
+g = Generator()
+z = torch.randn((1, 100))
+print(g(z).shape)
+```
+
+### Autoencoder (PyTorch)
+
+```python
+class Autoencoder(nn.Module):
+    def __init__(self):
+        super().__init__()
+        self.encoder = nn.Sequential(
+            nn.Linear(784, 128),
+            nn.ReLU(),
+            nn.Linear(128, 32)
+        )
+        self.decoder = nn.Sequential(
+            nn.Linear(32, 128),
+            nn.ReLU(),
+            nn.Linear(128, 784),
+            nn.Sigmoid()
+        )
+
+    def forward(self, x):
+        x = self.encoder(x)
+        return self.decoder(x)
+
+autoencoder = Autoencoder()
+input = torch.rand((1, 784))
+print(autoencoder(input).shape)
+```
+
+
