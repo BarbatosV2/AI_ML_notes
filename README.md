@@ -69,8 +69,11 @@ Softmax	Multiclass classification	Probabilities summing to 1
 They guide learning — you minimize these during training.
 
 Task Type	Loss Function
+
 Regression	MSE (Mean Squared Error)
+
 Binary Classification	BCE (Binary Cross Entropy)
+
 Multiclass Classification	CrossEntropyLoss
 
 ## 🧮 3. Weight Initialization
@@ -84,7 +87,9 @@ He initialization (for ReLU)
 ## 🧪 4. Overfitting & Underfitting
 
 Problem	Sign	Fixes
+
 Overfitting	Train accuracy >> test accuracy	Add dropout, regularization, more data
+
 Underfitting	Both accuracies low	Bigger model, longer training, tune LR
 
 ## 🚀 5. Optimizer Choice
@@ -92,8 +97,11 @@ Underfitting	Both accuracies low	Bigger model, longer training, tune LR
 Optimizers adjust weights during training:
 
 Optimizer	Strengths
+
 SGD	Simple, but slow convergence
+
 Adam	Most commonly used, fast & adaptive
+
 RMSProp	Used in RNNs
 
 👉 Adam is a good default.
@@ -101,7 +109,9 @@ RMSProp	Used in RNNs
 ## 🧪 6. Learning Rate
 
 Too small = slow learning
+
 Too big = unstable training
+
 ✅ Tip: use learning rate scheduling or try lr_find in tools like PyTorch Lightning or FastAI.
 
 ## ⏳ 7. Epochs, Batches, and Steps
@@ -117,7 +127,9 @@ Steps: Batches per epoch
 Use the right metrics to evaluate your model:
 
 Task	Metrics
+
 Classification	Accuracy, Precision, Recall, F1
+
 Regression	MSE, MAE, R²
 
 ## 🧱 9. Model Types to Learn About
